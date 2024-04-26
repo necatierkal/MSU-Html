@@ -9,13 +9,36 @@
     <meta name="description" content="MSÜ Yazılım Kursu"/>
     <meta name="keywords" content="MSÜ,yazılım,kurs,mühendislik"/> @* SEO kapsamında meta data bilgileri vermek gerek.  *@
     <title>MSÜ Project</title>
+    <link rel="icon" href="image/x-icon" />
+    <link href="~/css/login.css" rel="stylesheet" /> @*  ~ işareti root u işaret eder. *@
 </head>
 
 <body>
 
 <h1>Welcome To Project</h1>@* başlık bilümü 1 den başlayıp 6 ya kadar başlık ve alt başlık verilebilir. *@
-<p>Bu kısma login elemanları gelecektir</p> @* paragraftır yeni satıra geçer *@
+<p id="p_head">Bu kısma login elemanları gelecektir</p> @* paragraftır yeni satıra geçer *@
+    <strong><span>Burası birinci satır</span></strong>
+    <br />
+    @* <i><span>Burası ikinci satır</span></i> *@
+    <em><span>Burası ikinci satır</span></em> @* yanyana inline birşey yazmak istiyorsak kullanılır. İtalik yazmak için başına onuna i ya da em eklenir *@
+    <br />
+    <a href="/home">Home</a> @* Link vermek için kullanılır *@
+    <br />
+
+    <img src="~/img/koala.jpg" title="Koala hayvanı" style="width:200px;heigh:200px"/>
+    <br />
+    <input type="text" id="inp_username" placeholder="Username" />
+    <br />
+    <select id="sel_usertype">
+        <option value="0">Personel</option>
+        <option value="0">Ziyaretçi</option>
+        <option value="0">Yönetici</option>
+    </select>
+
+
 </body>
+<script src="~/js/login.js"></script> @* Java script dosyasını çalıştırmak için ekledik. Genelde body den sonra yazılır. *@
+
 
 </html>
 
