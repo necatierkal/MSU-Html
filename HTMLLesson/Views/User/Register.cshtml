@@ -1,12 +1,117 @@
 ﻿
+<div class="row">
+    @* yanyana olmasÄ± iÃ§in row classÄ±nÄ± import ettik, bunu verdiÄŸimiz yei 12 ye bÃ¶ler. *@
+    <div class="col-3">
+        @* Yeni bir div vererek Ã¼Ã§ sÃ¼tunu bu dive verdik *@
+        <div id="div_username" class="input-group">
+            @* bu div bir input grup olduÄŸunu belirttik *@
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-user"></i></span> @* Yanyana inline yazÄ± ekler stil verebilmek iÃ§in kullanÄ±lÄ±r. *@
+            </div>
+            <input type="text" id="input_username" name="input_username" class="form-control" maxlength="20" placeholder="Username" />
+        </div>
+    </div>
 
-<div class="row">  @* yanyana olması için row classını import ettik, bunu verdiğimiz yei 12 ye böler. *@
-   <div class="col-3"> @* Yeni bir div vererek üç sütunu bu dive verdik *@
-       <div id="div_username" class="input-group"> @* bu div bir input grup olduğunu belirttik *@
-           <div class="input-group-text">
-               <span><i class="fa-solid fa-user"></i></span> @* Yanyana inline yazı ekler stil verebilmek için kullanılır. *@
-           </div>
-            <input type="text" id="input_username" name="input_username" class="form-control" maxlength="20" placeholder="Username"/>
-       </div>
-   </div>
+
+
+
+    <div class="col-3">
+        @* Yeni bir div vererek Ã¼Ã§ sÃ¼tunu bu dive verdik *@
+        <div id="div_lastname" class="input-group">
+            @* bu div bir input grup olduÄŸunu belirttik *@
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-user"></i></span> @* Yanyana inline yazÄ± ekler stil verebilmek iÃ§in kullanÄ±lÄ±r. *@
+            </div>
+            <input type="text" id="input_lastname" name="input_lastname" class="form-control" maxlength="20" placeholder="Lastname" />
+        </div>
+    </div>
+
+
+
+    @* yanyana olmasÄ± iÃ§in row classÄ±nÄ± import ettik, bunu verdiÄŸimiz yei 12 ye bÃ¶ler. *@
+    <div class="col-3">
+        @* Yeni bir div vererek Ã¼Ã§ sÃ¼tunu bu dive verdik *@
+        <div id="div_phone" class="input-group">
+            @* bu div bir input grup olduÄŸunu belirttik *@
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-phone"></i></span> @* Yanyana inline yazÄ± ekler stil verebilmek iÃ§in kullanÄ±lÄ±r. *@
+            </div>
+            <input type="text" id="input_phone" name="input_phone" class="form-control" maxlength="20" placeholder="Phone" />
+        </div>
+    </div>
+
+    <div class="col-3">
+        @* Yeni bir div vererek Ã¼Ã§ sÃ¼tunu bu dive verdik *@
+        <div id="div_birthday" class="input-group">
+            @* bu div bir input grup olduÄŸunu belirttik *@
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-cake-candles"></i></span> @* Yanyana inline yazÄ± ekler stil verebilmek iÃ§in kullanÄ±lÄ±r. *@
+            </div>
+            <input type="date" id="input_birthday" name="input_birthday" class="form-control" maxlength="20" placeholder="Birthday" />
+        </div>
+    </div>
+
 </div>
+<div class="row mt-2">
+    <div class="col-5">
+
+        <div id="div_email" class="input-group mt-2 ">
+
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-envelope "></i></span>
+            </div>
+            <input type="text" id="input_email" name="input_email" class="form-control" maxlength="20" placeholder="Email" />
+        </div>
+
+
+
+        <div class="col-5">
+            <div id="div_password" class="input-group mt-2 ">
+
+                <div class="input-group-text">
+                    <span><i class="fa-solid fa-key "></i></span>
+                </div>
+                <input type="text" id="input_password" name="input_password" class="form-control" maxlength="20" placeholder="Password" />
+            </div>
+        </div>
+
+
+        <div class="col-5">
+
+            <div id="div_cpassword" class="input-group mt-2">
+
+                <div class="input-group-text">
+                    <span><i class="fa-solid fa-key "></i></span>
+                </div>
+                <input type="text" id="input_cpassword" name="input_cpassword" class="form-control" maxlength="20" placeholder="Confirm password" />
+            </div>
+        </div>
+    </div>
+    <div class="col-7">
+
+        <div id="div_address" class="input-group mt-2 error">
+
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-location-dot "></i></span>
+            </div>
+            <textarea type="text" id="input_address" name="input_address" class="form-control" rows="5" placeholder="Address">
+        </textarea>
+
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="row mt-4 float-end">
+    @* float-end en sağa atar *@
+    <div class="col-12">
+        <div class="btn-group" role="group">
+            <button class="btn btn-danger" id="btn_cancel">Cancel</button>
+            <button class="btn btn-warning" id="btn_clear">Clear</button>
+            <button class="btn btn-success" id="btn_save">Register</button>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/user/register.js"></script>
+}
