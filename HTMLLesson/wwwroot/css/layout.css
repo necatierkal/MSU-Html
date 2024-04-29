@@ -1,0 +1,12 @@
+﻿
+.logo-image { /* class olduğunu belirtmek için başına . konulur. stil vermek için class oluşturduk. istediğimiz yerde bu class ı çaıracağız. Css dosyası olarak stil vermek 3.yöntem */
+    width: 40px;
+    border : solid
+}
+/*div,p{
+
+}*/ /*tüm div ve paragraflara stil ekleyebiliriz button şekilde */
+
+
+/*div ul li {
+}*/    /*} div input altında ul altındaki tüm li lere ekler*/ 
