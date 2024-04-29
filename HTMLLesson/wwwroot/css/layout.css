@@ -1,7 +1,7 @@
 ﻿
 .logo-image { /* class olduğunu belirtmek için başına . konulur. stil vermek için class oluşturduk. istediğimiz yerde bu class ı çaıracağız. Css dosyası olarak stil vermek 3.yöntem */
     width: 40px;
-    border : solid
+    border : 1px solid #ddd;
 }
 /*div,p{
 
@@ -10,3 +10,10 @@
 
 /*div ul li {
 }*/    /*} div input altında ul altındaki tüm li lere ekler*/ 
+
+/*id olduğunu belirtmek için # koyduk başına. img_logo id li elemana stil veriyoruz.*/
+#img_logo 
+{
+    padding:3px;
+    border-radius:50%;
+}

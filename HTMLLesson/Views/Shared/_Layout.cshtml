@@ -25,7 +25,7 @@
             <div class="container-fluid">
                 @* <img src="~/img/home.png" class="navbar-brand" style="width:40px" important!;/> @* important keywordü başka biryerde verdiğimiz genişlik(stil) varsa bile buradaki konfigürasyonun kullanılmasını sağlar *@ 
                 @* <img class="navbar-brand logo-image" src="~/img/home.png" /> *@
-                <img class="navbar-brand logo-image" src="~/img/home.png" />
+                <img id="img_logo" class="navbar-brand logo-image" src="~/img/home.png" />
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">HTMLLesson</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -60,6 +60,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/52260cd1ed.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
