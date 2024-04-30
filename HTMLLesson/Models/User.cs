@@ -2,6 +2,7 @@
 
 namespace HTMLLesson.Models
 {
+
     public class User
     {
         [MaxLength(20)]
@@ -9,7 +10,7 @@ namespace HTMLLesson.Models
         [MaxLength(30)]
         public string? Lastname { get; set; }
         [MaxLength(16)]
-        public string? Username { get; set; }
+        public string Username { get; set; }
         public long Phone { get; set; }
         public DateTime? Birthday { get; set; }
         [MaxLength(75)]

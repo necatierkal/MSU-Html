@@ -15,6 +15,11 @@ let Page = {
         $(document).on("click", "#btn_clear", function (e) {
             Page.Clear();
         });
+        $(document).on("click", "#btn_save", function (e) {
+            User.Register();
+        });
+
+        
     },
     Clear: function () {
     //    document.getElementsByClassName("Form-control").val = "";
@@ -29,7 +34,26 @@ let Page = {
 
 let User = {
     Register: function () {
+        let user = {
 
+            Name: $("#input_username").val(),
+            Lastname: $("#input_lastname").val(),
+            Username: $("#input_nickname").val(),
+            Phone: $("#input_phone").val(),
+            Birthday: $("#input_birthday").val(),
+            Email: $("#input_email").val(),
+            Password: $("#input_password").val(),
+            Address: $("#input_address").val()
+        };
+    
+    Utility.WriteLog(user);
+    }
+}
+
+
+let Utility = {
+    WriteLog: function (log) {
+        console.log(log);
     }
 }
 
