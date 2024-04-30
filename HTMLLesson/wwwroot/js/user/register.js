@@ -26,6 +26,13 @@ let Page = {
 
 }
 
+
+let User = {
+    Register: function () {
+
+    }
+}
+
 console.log("Register javascript loaded.");
 
 //$(document).on("click", "#btn_clear", function (e) {
