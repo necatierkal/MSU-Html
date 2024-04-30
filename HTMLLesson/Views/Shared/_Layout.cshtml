@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" /> @* Dışarıdan aldığımız css leri burada import ettik(wwwroot altındaki) *@
 
 </head>
+
 @* <style>
     .logo-image{  /* class olduğunu belirtmek için başına . konulur. stil vermek için class oluşturduk. istediğimiz yerde bu class ı çaıracağız. */
         width:40px;
@@ -70,5 +71,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="https://kit.fontawesome.com/52260cd1ed.js" crossorigin="anonymous"></script>
     @await RenderSectionAsync("Scripts", required: false)
+    @await RenderSectionAsync("Css", required: false) @* Asenkron olarak section yüklemesi ayarlanabilir. *@
 </body>
 </html>
