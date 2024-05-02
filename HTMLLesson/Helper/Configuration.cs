@@ -10,7 +10,7 @@ namespace HTMLLesson.Helper
             {
                  ConfigurationManager configurationManager = new();
                 configurationManager.AddJsonFile("appsettings.json");
-                return configurationManager.GetConnectionString("PostgreSQL");
+                return configurationManager.GetConnectionString("SQLServer");
 
             }
         }
