@@ -35,13 +35,15 @@ let Page = {
 
 let User = {
     Register: function () {
+
+      
         let user = {
 
             Name: $("#input_username").val(),
             Lastname: $("#input_lastname").val(),
             Username: $("#input_nickname").val(),
             Phone: $("#input_phone").val(),
-            Birthday: $("#input_birthday").val(),
+            Birthday: Utility.ToTurkishDate("input_birthday"),// $("#input_birthday").val(),
             Email: $("#input_email").val(),
             Password: $("#input_password").val(),
             Address: $("#input_address").val()
@@ -69,6 +71,15 @@ let User = {
 let Utility = {
     WriteLog: function (log) {
         console.log(log);
+    },
+    ToTurkishDate: function () {
+        var dateInp = document.getElementById("input_birthday").value;
+        var selDate = new Date(dateInp);
+        //var formattedDate = selDate.toLocaleDateString("tr-TR");
+
+        //Utility.WriteLog(formattedDate);
+        //alert(formattedDate);
+        return selDate.toLocaleDateString('tr-TR');
     }
 }
 

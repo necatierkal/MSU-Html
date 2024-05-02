@@ -1,2 +1,45 @@
 ﻿
 
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 above-buttons">
+
+        <div id="div_username" class="input-group">
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-user"></i></span>
+            </div>
+            <input type="text" id="input_username" name="input_username" class="form-control"
+                   maxlength="16" placeholder="Username" />
+
+        </div>
+        <div id="div_password" class="input-group mt-2">
+            <div class="input-group-text">
+                <span><i class="fa-solid fa-user"></i></span>
+            </div>
+            <input type="password" id="input_password" name="input_password" class="form-control"
+                   maxlength="16" placeholder="Password" />
+        </div>
+    </div>
+
+    <div class="col-4"></div>
+</div>
+<div class="row mt-3">
+    <div class="col-2"></div>
+    <div class="col-6">
+        <span id="span-warning" role="group"></span>
+        <div class="btn-group float-end" role="group">
+            <button class="btn btn-danger"  id="btn_cancel">Cancel</button>
+            <button class="btn btn-warning" id="btn_clear">Clear</button>
+            <button class="btn btn-success" id="btn_save">Login</button>
+        </div>
+
+    </div>
+    <div class="col-4"></div>
+</div>
+@section Scripts{
+
+}
+
+@section Css {
+    <link rel="stylesheet" href="~/css/login.css"/>
+}
