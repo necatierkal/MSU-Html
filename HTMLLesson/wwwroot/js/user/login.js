@@ -39,12 +39,12 @@ let User = {
       
         let userLogin = {
             
-            Username: $("#input_nickname").val(),           
+            Username: $("#input_username").val(),           
             Password: $("#input_password").val()
         
         };
     
-        Utility.WriteLog(user);
+        Utility.WriteLog(userLogin);
 
 
         //Client ve server arasındaki haberleşmeyi asenkron bir şekilde ajax (asenkron javascript) sağlar.
@@ -69,7 +69,7 @@ let Utility = {
         console.log(log);
     },
     WriteInfo: function (info) {
-        document.getElementById("span_warning").innerHTML = info;
+        document.getElementById("span-warning").innerHTML = info;
        // $("#span_warning").html(info); //Yukarıdakinin aynısının jquery ile yazılışı
     }
 }
