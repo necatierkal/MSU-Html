@@ -1,0 +1,24 @@
+﻿
+Kısa Notlar
+
+Migration oluşturmak için ;
+	add-migration intiDB
+komutunu Paket yönetici Konsolunda çalıştırdık.
+Migrations klasörü altına bir cs dosyası oluşturdu.
+
+	update-database 
+komutuyla modellediğimiz tabloları vt nda oluşturduk.
+
+(Bu işlemlerde hata olursa oluşan migration klasörünü projeden, Database i SSMS ten silip tekrarlamak gerekir. Hata mesajı verirse connection stringi kontrol et.)
+
+
+Modellediğimiz tabloya sonradan kolon ekleme ihtiyacı varsa;
+
+Yeni isimle bir migration oluşturup update database yapılmalı.
+(
+add-migration AddStatus
+update-database 
+)
+
+
+

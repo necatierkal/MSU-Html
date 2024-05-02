@@ -1,6 +1,7 @@
 ﻿
 $(document).ready(function () {
     Page.Init();
+ 
 });
 
 let Page = {
@@ -46,7 +47,21 @@ let User = {
             Address: $("#input_address").val()
         };
     
-    Utility.WriteLog(user);
+        Utility.WriteLog(user);
+
+
+        //Client ve server arasındaki haberleşmeyi asenkron bir şekilde ajax (asenkron javascript) sağlar.
+        $.ajax({
+            type: "POST",
+            data: JSON.stringify(user),
+            url: "/user/register",
+            contentType: "application/json",
+            async: true
+
+        }).done(function (res) {
+            Utility.WriteLog(res);
+        })
+
     }
 }
 

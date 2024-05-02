@@ -5,6 +5,8 @@ namespace HTMLLesson.Models
 
     public class User
     {
+        [Key]
+        public int Id { get; set; }
         [MaxLength(20)]
         public string? Name { get; set; }
         [MaxLength(30)]
@@ -18,6 +20,7 @@ namespace HTMLLesson.Models
         [MaxLength(16)]
         public string Password { get; set; }
         public string? Address { get; set; }
-        
+        public bool Status { get; set; }
+
     }
 }
