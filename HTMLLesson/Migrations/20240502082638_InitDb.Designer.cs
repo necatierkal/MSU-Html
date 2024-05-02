@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HTMLLesson.Migrations
 {
     [DbContext(typeof(MSUDBContext))]
-    [Migration("20240502081600_AddStatus")]
-    partial class AddStatus
+    [Migration("20240502082638_InitDb")]
+    partial class InitDb
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

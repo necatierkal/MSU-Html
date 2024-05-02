@@ -1,10 +1,17 @@
-﻿using HTMLLesson.Models;
+﻿using HTMLLesson.Context;
+using HTMLLesson.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace HTMLLesson.Controllers
 {
     public class userController : Controller
     {
+        private readonly MSUDBContext _context;
+        public userController(MSUDBContext context)
+        {
+                _context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -19,9 +26,18 @@ namespace HTMLLesson.Controllers
         [HttpPost]
         public User Register([FromBody]User user)
         {
-            user.Name = string.Concat("Değişen-", user.Name);
+            _context.Users.Add(user);
+            _context.SaveChanges();
+           // user.Name = string.Concat("Değişen-", user.Name);
             return user;
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View(); 
+        }
+
     }
 }
 

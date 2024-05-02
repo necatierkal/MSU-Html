@@ -1,6 +1,12 @@
+using HTMLLesson.Context;
+using HTMLLesson.Helper;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddDbContext<MSUDBContext>(options=>options.UseSqlServer(Configuration.ConnectionString));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
