@@ -38,6 +38,13 @@ namespace HTMLLesson.Controllers
             return View(); 
         }
 
+        [HttpPost]
+        public bool Login([FromBody]UserLogin userLogin)
+        {
+            User? user = _context.Users.FirstOrDefault(x => x.Username == userLogin.Username && x.Password == userLogin.Password);
+            return user == null ? false :true;
+        }
+
     }
 }
 

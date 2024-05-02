@@ -17,7 +17,7 @@ let Page = {
             Page.Clear();
         });
         $(document).on("click", "#btn_save", function (e) {
-            User.Register();
+            User.Login();
         });
 
         
@@ -34,19 +34,14 @@ let Page = {
 
 
 let User = {
-    Register: function () {
+    Login: function () {
 
       
-        let user = {
-
-            Name: $("#input_username").val(),
-            Lastname: $("#input_lastname").val(),
-            Username: $("#input_nickname").val(),
-            Phone: $("#input_phone").val(),
-            Birthday: $("#input_birthday").val() == '' ? null : $("#input_birthday").val(), //Utility.ToTurkishDate("input_birthday"),
-            Email: $("#input_email").val(),
-            Password: $("#input_password").val(),
-            Address: $("#input_address").val()
+        let userLogin = {
+            
+            Username: $("#input_nickname").val(),           
+            Password: $("#input_password").val()
+        
         };
     
         Utility.WriteLog(user);
@@ -55,13 +50,14 @@ let User = {
         //Client ve server arasındaki haberleşmeyi asenkron bir şekilde ajax (asenkron javascript) sağlar.
         $.ajax({
             type: "POST",
-            data: JSON.stringify(user),
-            url: "/user/register",
+            data: JSON.stringify(userLogin),
+            url: "/user/login",
             contentType: "application/json",
             async: true
 
         }).done(function (res) {
             Utility.WriteLog(res);
+            res == true ? Utility.WriteInfo("Login Başarılı",true) : Utility.WriteInfo("Lütfen tekrar deneyiniz.",false);
         })
 
     }
@@ -71,16 +67,11 @@ let User = {
 let Utility = {
     WriteLog: function (log) {
         console.log(log);
-    }//,
-    //ToTurkishDate: function () {
-    //    var dateInp = document.getElementById("input_birthday").value;
-    //    var selDate = new Date(dateInp);
-    //    //var formattedDate = selDate.toLocaleDateString("tr-TR");
-
-    //    //Utility.WriteLog(formattedDate);
-    //    //alert(formattedDate);
-    //    return selDate.toLocaleDateString('tr-TR');
-    //}
+    },
+    WriteInfo: function (info) {
+        document.getElementById("span_warning").innerHTML = info;
+       // $("#span_warning").html(info); //Yukarıdakinin aynısının jquery ile yazılışı
+    }
 }
 
 console.log("Register javascript loaded.");
