@@ -88,8 +88,9 @@ let User = {
 
         }).done(function (res) {
             //Utility.WriteLog(res);
-            Utility.WriteSuccess("New User created with Id:'" + res+"'");
-            Utility.WriteInfo("Confirmation is true!", true);
+            Utility.WriteSuccess("New User created with Id:'" + res + "'");
+            $("#input_name").val(res.Name);
+            //Utility.WriteInfo("Confirmation is true!", true);
         })
 
     }
