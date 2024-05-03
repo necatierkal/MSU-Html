@@ -24,12 +24,12 @@ namespace HTMLLesson.Controllers
         }
 
         [HttpPost]
-        public User Register([FromBody]User user)
+        public long Register([FromBody]User user)
         {
             _context.Users.Add(user);
             _context.SaveChanges();
            // user.Name = string.Concat("Değişen-", user.Name);
-            return user;
+            return user.Id;
         }
 
         [HttpGet]

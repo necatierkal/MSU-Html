@@ -28,6 +28,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=User}/{action=Register}/{id?}"); //Programýn default açýlacaðý yeri belirledik
+    pattern: "{controller=User}/{action=Login}/{id?}"); //Programýn default açýlacaðý yeri belirledik
 
 app.Run();

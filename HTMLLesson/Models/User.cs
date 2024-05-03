@@ -20,7 +20,7 @@ namespace HTMLLesson.Models
         [MaxLength(16)]
         public string Password { get; set; }
         public string? Address { get; set; }
-        public bool Status { get; set; } = false;
+        public bool Status { get; set; } = true;
 
     }
 }
