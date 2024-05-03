@@ -29,6 +29,10 @@ let Page = {
 
         $("body :input").val(""); //body etiketinenin içerisindeki tüm inputlarını al, valuelarına boş atama yap. (Clear)
         $("#input_username").focus();
+    },
+    ClearValidation: function () {
+        $("body : input").css("border-color", "#ced4da");
+        $("div").css("border-color", "#ced4da");
     }
 
 }
@@ -37,6 +41,7 @@ let Page = {
 let User = {
 
     Validate: function () {
+        Page.ClearValidation();
         if ($("#input_username").val() == "") validation = 1;
         else if ($("#input_phone").val() == "") validation = 2;
         else if ($("#input_password").val() == "") validation = 3;
@@ -45,8 +50,7 @@ let User = {
     },
 
     Register: function () {
-         
-      
+              
 
         if (User.Validate())
         {
@@ -112,30 +116,42 @@ let Utility = {
     WriteSuccess: function (info) {
         $("#spn_warning").html(info).css("color","#008000");
     },
+    MakeRed: function ($elem) {
+        $($elem).each(function (index, $elem) {
+            $elem.css("border", "1px solid red");
+            if (index == 1) $elem.focus();
+        });
+    },
     WriteError: function (info = null) {
         switch (validation) {
             case 1:
                 info = "Username is required!";
+                Utility.MakeRed([$("#div_username"),$("#input_name")]);
                 break;
             case 2:
                 info = "Phone is required!";
+                Utility.MakeRed([$("#div_phone"), $("#input_phone")]);
                 break;
             case 3:
                 info = "Password is required!";
+                Utility.MakeRed([$("#div_password"), $("#input_password")]);
                 break;
             case 4:
                 info = "Password confirmation is not same!";
+                Utility.MakeRed([$("#div_password"), $("#input_password"),$("#div_cpassword"), $("#input_cpassword")]);
             default:
                 break;
         }
-
-        if ($elem != null) {
-            $.each($elem,function(index,$elem))
-        }
+    
+        //if ($elem != null) {
+        //    $.each($elem,function(index,$elem))
+        //}
 
           $("#spn_warning").html(info).css("color","red");
         // $("#span_warning").html(info); //Yukarıdakinin aynısının jquery ile yazılışı
     }
+ 
+
 }
 
 console.log("Register javascript loaded.");
