@@ -31,7 +31,7 @@ let Page = {
         $("#input_username").focus();
     },
     ClearValidation: function () {
-        $("body : input").css("border-color", "#ced4da");
+        $("body :input").css("border-color", "#ced4da");
         $("div").css("border-color", "#ced4da");
     }
 
