@@ -26,7 +26,19 @@ let Page = { //Page adında bir obje oluşturduk. Bu obje sayfa işlemleri için
     Clear: function () {
     //    document.getElementsByClassName("Form-control").val = "";
     //    document.getElementsById("input_lastname").val = "";
-        $("#div_products").css("display","none");//Başlangıçta boş products tablounu gösterme (nonw,block,hidden,show seçenekleri mevcut)
+        $("#div_products").css("display", "none");//Başlangıçta boş products tablounu gösterme
+        /*
+        display CSS özelliğinin değeri olarak none dışında birkaç farklı değer kullanılabilir. Bazı yaygın kullanılan değerler ve ne işe yaradıkları:
+
+            block: Bu değer, bir öğenin bir blok düzende görüntülenmesini sağlar. Öğe, alt ve üst öğelerden bağımsız bir satırda başlar ve bitirir.
+            inline: Bu değer, bir öğenin bir satırda diğer içerikle birlikte görüntülenmesini sağlar. Öğe, çevresindeki içerikle aynı satırda başlar ve biter.
+            inline-block: Bu değer, bir öğenin satır içi gibi görünmesini sağlar, ancak blok gibi davranmasını sağlar. Yani, öğe diğer içerikle aynı satırda başlar ve biter, ancak genişlik ve yükseklik gibi blok özelliklerine sahiptir.
+            flex: Bu değer, bir öğenin esnek bir kutu modeline sahip olmasını sağlar. flex konteynerindeki öğeler, esneklik, büyüme, daralma ve hizalama gibi özelliklere sahip olabilir.
+            grid: Bu değer, bir öğenin bir ızgara düzende görüntülenmesini sağlar. Öğeleri satır ve sütunlarla hizalayabilir ve konumlandırabilirsiniz.
+            table: Bu değer, bir öğenin bir tablo olarak görüntülenmesini sağlar. Ancak, gerçek bir HTML tablosu yerine CSS ile oluşturulan bir tabloya benzer şekilde davranır.
+            initial: Bu değer, bir özelliğin varsayılan değerini almasını sağlar.
+            inherit: Bu değer, bir özelliğin değerini, belirtilen özelliği içeren elemanın ebeveyn öğesinden almasını sağlar.
+        */
         //$("body :input").val(""); //body etiketinenin içerisindeki tüm inputlarını al, valuelarına boş atama yap. (Clear)      
     
     }  
