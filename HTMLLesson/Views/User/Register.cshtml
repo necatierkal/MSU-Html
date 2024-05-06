@@ -115,11 +115,19 @@
 <div class="row mt-4 float-end">
     @* float-end en sağa atar *@
     <div class="col-12">
-        <span id="spn_warning" role="group">Lütfen Yeni Kullanıcı Bilgilerini Giriniz...</span>
-        <div class="btn-group" role="group">
-            <button class="btn btn-danger" id="btn_cancel">Cancel</button>
-            <button class="btn btn-warning" id="btn_clear">Clear</button>
-            <button class="btn btn-success" id="btn_save">Register</button>
+        <div id="div_captchaButtons" class="input-group">
+            <span id="spn_warning" role="group">Lütfen Yeni Kullanıcı Bilgilerini Giriniz...</span>
+            <span id="spn_captcha"></span>
+            <span id="spn_refreshCaptcha">
+                <i class="fa-solid fa-rotate"></i>
+            </span>
+            <input id="input_captcha" maxlength="2" placeholder="?" class="form-control" />
+            <div class="btn-group" role="group">
+                <button class="btn btn-info" id="btn_test">Test</button>
+                <button class="btn btn-danger" id="btn_cancel">Cancel</button>
+                <button class="btn btn-warning" id="btn_clear">Clear</button>
+                <button class="btn btn-success" id="btn_save">Register</button>
+            </div>
         </div>
     </div>
 </div>

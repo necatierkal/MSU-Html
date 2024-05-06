@@ -24,3 +24,21 @@ body {
     margin-right: 10px;
     vertical-align: bottom;
 }
+
+#input_captcha {
+    flex: initial;
+    margin-left: 20px;
+    width: 50px;
+}
+
+#spn_refreshCaptcha {
+    margin-left: 20px;
+    cursor: pointer;
+    color: #555;
+    align-self: center;
+}
+
+#spn_captcha {
+    font-size: 20px;
+    width: 70px;
+}

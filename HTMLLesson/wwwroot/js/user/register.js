@@ -1,5 +1,7 @@
 ﻿
 let validation = -1;
+let captchaControl = null;
+
 $(document).ready(function () {
     Page.Init();
  
@@ -9,6 +11,7 @@ let Page = {
     Init: function () {
         Page.Handler();
         Page.Clear();
+        Utility.RefreshCaptcha();
     },
     Handler: function () {
         $(document).on("click", "#btn_cancel", function (e) {
@@ -20,6 +23,12 @@ let Page = {
         $(document).on("click", "#btn_save", function (e) {
             User.Register();
         });
+        $(document).on("click", "#spn_refreshCaptcha", function (e) {
+            Utility.RefreshCaptcha();
+        });
+        $(document).on("click", "#btn_test", function (e) {
+            Utility.CaptchaControl();
+        });
 
         
     },
@@ -29,10 +38,11 @@ let Page = {
 
         $("body :input").val(""); //body etiketinenin içerisindeki tüm inputlarını al, valuelarına boş atama yap. (Clear)
         $("#input_username").focus();
+        Utility.RefreshCaptcha();
     },
     ClearValidation: function () {
         $("body :input").css("border-color", "#ced4da");
-        $("div").css("border-color", "#ced4da");
+        $("div").css("border-color", "#ced4da");      
     }
 
 }
@@ -46,6 +56,7 @@ let User = {
         else if ($("#input_phone").val() == "") validation = 2;
         else if ($("#input_password").val() == "") validation = 3;
         else if ($("#input_password").val() != $("#input_cpassword").val()) validation = 4;
+        else if (!Utility.CaptchaControl()) validation = 5;
         return validation == -1 ? false : true;
     },
 
@@ -118,9 +129,9 @@ let Utility = {
         $("#spn_warning").html(info).css("color","#008000");
     },
     MakeRed: function ($elem) {
-        $($elem).each(function (index, $elem) {
-            $elem.css("border", "1px solid red");
-            if (index == 1) $elem.focus();
+        $($elem).each(function (index, $element) {
+            $element.css("border", "1px solid red");
+            if (index == 1 || $elem.length==1) $element.focus();
         });
     },
     WriteError: function (info = null) {
@@ -139,8 +150,15 @@ let Utility = {
                 break;
             case 4:
                 info = "Password confirmation is not same!";
-                Utility.MakeRed([$("#div_password"), $("#input_password"),$("#div_cpassword"), $("#input_cpassword")]);
+                Utility.MakeRed([$("#div_password"), $("#input_password"), $("#div_cpassword"), $("#input_cpassword")]);
+                break;
+            case 5:
+                info = "Captcha control is invalid!"
+                Utility.MakeRed([$("#input_captcha")]);
+                break;
+             
             default:
+                Utility.WriteSuccess("New user info was sent to save");
                 break;
         }
     
@@ -150,6 +168,48 @@ let Utility = {
 
           $("#spn_warning").html(info).css("color","red");
         // $("#span_warning").html(info); //Yukarıdakinin aynısının jquery ile yazılışı
+    },
+
+    Randomizer: function (startValue=0,endValue=10) {
+        //let randomValue = Math.floor(Math.random())  
+        return startValue + Math.floor(Math.random() * (endValue - startValue));
+         
+    },
+    RefreshCaptcha: function () {
+        // $("spn_captcha").html(Utility.Randomizer(25,35));
+        let x = Utility.Randomizer();
+        let y = Utility.Randomizer();
+        let randomProcess = Utility.Randomizer(0, 3);
+        let captcha = "  | ";
+        if (y > x) {
+            let temp = x;
+            x = y;
+            y = temp;
+        };
+        switch (randomProcess) {
+            case 0:
+                captchaControl = x + y;
+                captcha += x + "+" + y;
+                break;
+            case 1:
+                captchaControl = x - y;
+                captcha += x + "-" + y;
+                break;
+            case 2:
+                captchaControl = x * y;
+                captcha += x + "*" + y;
+                break;
+            default:
+                break;
+        };
+        $("#spn_captcha").html(captcha);
+
+    },
+    CaptchaControl: function () {
+        let userInput = document.getElementById("input_captcha").value;
+        let result = captchaControl == userInput ? true : false;
+       
+        return result;
     }
  
 
