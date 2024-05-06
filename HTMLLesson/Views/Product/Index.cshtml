@@ -1,8 +1,8 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-    
-    
-    
+
+
+
     Yeni oluşturduğumuz prodcut controller ın Index metodu içeriği.
 
 
@@ -11,7 +11,7 @@
 @{
 }
 
- 
+
 
 
 
@@ -22,8 +22,37 @@
 <br />
 <hr />
 <br />
+<div id="div_products">
+    <table id="table_products" class="display table table-striped table-bordered" cellspacing="0">
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>categoryId</th>
+                <th>quantityPerUnit</th>
+                <th>unitPrice</th>
+                <th>unitsInStock</th>
+                <th>discontinued</th>
+                <th>Operations</th>
+            </tr>
+        </thead>
 
-@section Css{
+        <tfoot>
+            <tr>
+                <th>id</th>
+                <th>name</th>
+                <th>categoryId</th>
+                <th>quantityPerUnit</th>
+                <th>unitPrice</th>
+                <th>unitsInStock</th>
+                <th>discontinued</th>
+                <th>Operations</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>
+
+@section Css {
     <link href="https://cdn.datatables.net/v/dt/dt-2.0.6/datatables.min.css" rel="stylesheet">
 }
 @section Scripts {
