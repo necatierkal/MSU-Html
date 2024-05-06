@@ -1,24 +1,24 @@
 ﻿console.log("Product/Index javascript loaded.");
 
-$(document).ready(function () {
-    Page.Init();
+$(document).ready(function () {// Bu jQuery fonksiyonu, sayfanın tamamen yüklendiğinde çalıştırılacak kodları belirtir.
+    Page.Init();//Sayfa yüklendiğinde Page objesinin Init fonksiyonunu çağırır.
  
 });
 
-let Page = {
-    Init: function () {
-        Page.Handler();
-        Page.Clear();      
+let Page = { //Page adında bir obje oluşturduk. Bu obje sayfa işlemleri için kullanılacak fonksiyonları içerir.
+    Init: function () {//Page objesinin Init metodu, sayfa başlangıcını yapılandırır. İlgili işlemleri çağırır.
+        Page.Handler();//Kullanıcı etkileşimlerini ele alacak olan fonksiyonu tanımlar. Örneğin, butonlara tıklama gibi olayları dinler.
+        Page.Clear();  //Sayfada temizlik yapacak olan fonksiyonu tanımlar. Örneğin, form alanlarını temizler veya görsel öğeleri gizler.    
     },
     Handler: function () {
         $(document).on("click", "#btn_cancel", function (e) {
-            history.back(); //Javascript metodudur. 1 geriye gelir. İçerisine rakam belirtirsek o kadar geriye gelir.
+            history.back(); //Javascript metodudur. 1 geriye gelir. İçerisine rakam belirtirsek o kadar geriye gelir. İptal butonuna tıklandığında geri gitmeyi sağlayacak olan fonksiyonu tanımlar.
         });
         $(document).on("click", "#btn_clear", function (e) {
-            Page.Clear();
+            Page.Clear();//Temizleme butonuna tıklandığında form alanlarını temizleyecek olan fonksiyonu tanımlar.
         });
         $(document).on("click", "#input_getProducts", function (e) {
-            Product.GetProducts();
+            Product.GetProducts();//Ürünleri getirme butonuna tıklandığında ürünleri getirecek olan fonksiyonu tanımlar.
         });
    
         
@@ -35,24 +35,26 @@ let Page = {
 
 
 let Product = {
-
+    //Product adında bir obje oluşturur. Bu obje ürün işlemleri için kullanılacak fonksiyonları içerir.
     GetProducts: function () {
               
-        //Client ve server arasındaki haberleşmeyi asenkron bir şekilde ajax (asenkron javascript) sağlar.
+        //Bu kodun genel amacı, bir API'den ürün verilerini çekmek, bu verileri bir tablo içinde kullanıcıya göstermek ve her bir satırda güncelleme ve silme işlemlerini gerçekleştirebilmek için butonlar eklemektir.
+
+        // Ürünleri getirmek için API'ye bir GET isteği yapacak olan fonksiyonu tanımlar.
         $.ajax({
             type: "GET",        
-            url: "http://localhost:22437/api/Products",
+            url: "http://localhost:5222/api/Products",
             contentType: "application/json",
             async: true
 
         }).done(function (res) {
             Utility.WriteLog(res);
-            $("#table_products").DataTable({
-                "destroy": true,
-                "select": true,
-                "autowidth": true,
-                "data": res,
-                "columns": [
+            $("#table_products").DataTable({//DataTables eklentisi ile bir tablo oluşturuluyor. Bu tablonun içeriği, aldığımız ürünlerin listesi olacak. DataTables, veri tabanlı bir tablo oluşturmak için kullanılan bir jQuery eklentisidir.
+                "destroy": true,//Varolan bir tablonun varsa önce yok edilmesi belirtiliyor. Yani, mevcut bir tablo varsa, onu sil.
+                "select": true,//Tabloda satırların seçilebilir olmasını sağlar.
+                "autowidth": true,//Tablonun otomatik genişlemesini sağlar.
+                "data": res,//Tablonun içeriği, AJAX isteğiyle gelen yanıt olan res ile dolduruluyor. Bu, API'den alınan ürün verileridir.
+                "columns": [ //Tablonun sütunları belirtiliyor. Her sütunun, gelen veri içinde hangi özelliği temsil ettiği belirtiliyor.
                     { "data": "id" },
                     { "data": "name" },
                     { "data": "categoryId" },
@@ -61,24 +63,24 @@ let Product = {
                     { "data": "unitsInStock" },
                     { "data": "discontinued" },
                     {
-                        "render": function (data, type, row, meta) {
+                        "render": function (data, type, row, meta) {//Bu fonksiyon, tablo hücresine içerik yerleştirmek için kullanılıyor. Burada, her bir satır için bir "Güncelle" ve "Sil" butonu ekleniyor.
                             let updateButton = '<button style="padding:2px 4px; margin:2px;" title="Update Post" class="btn btn-warning" onclick="Product.Update(' + data.id + ');"><i class="fa fa-refresh"></i></button>\n\n';
                             let deleteButton = '<button style="padding:2px 4px; margin:2px;" title="Delete Post" class="btn btn-danger" onclick="Product.Delete(' + data.id + ');"><i class="fa-regular fa-trash-can"></i></button>\n\n';
 
                             return updateButton + deleteButton;
                         },
-                        "data": null
+                        "data": null// Bu sütun, veri içeriği olmayacak, yalnızca butonlar içerecek.
                     }
                 ]
             });
-            $("#div_products").css("display", "block");   //Başlangıçta gösterme demiştik.Veriyi getirdikten sonra göster demeliyiz.
+            $("#div_products").css("display", "block");   //Başlangıçta gösterme demiştik.Veriyi getirdikten sonra göster demeliyiz.Ürünlerin listelendiği div'in görünürlüğü açılıyor. Bu, ürünlerin listesinin kullanıcıya gösterilmesini sağlar.
         })
 
     }
 }
 
 
-let Utility = {
+let Utility = {//Utility adında bir obje oluşturur. Bu obje yardımcı işlevleri içerir.
     WriteLog: function (log) {
         console.log(log);
     }
