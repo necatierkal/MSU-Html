@@ -22,3 +22,5 @@ update-database
 
 
 
+https://github.com/tameryildirim/htmlmsu hocanın github'ı,proje bu url den çekilebilir.
+https://github.com/necatierkal/MSU-Html benim github.Kendi açıklamalarım mevcut.
